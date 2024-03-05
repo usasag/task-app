@@ -70,13 +70,33 @@ const SingleTodo = ({ todo, todos, setTodos, index }: Props)  => {
                 setEdit(!edit);
                 }
             }}
+            role="button"
+            onKeyDown={(e) => {
+                if (e.key === "e") {
+                if (!edit && !todo.isDone) {
+                    setEdit(!edit);
+                }
+                }
+            }}
             >
             <AiFillEdit />
             </span>
-            <span className="icon" onClick={() => handleDelete(todo.id)}>
+            <span className="icon" onClick={() => handleDelete(todo.id)} role="button" onKeyDown={(e) => {
+                if (e.key === "d") {
+                if (!edit && !todo.isDone) {
+                    setEdit(!edit);
+                }
+                }
+            }}>
             <AiFillDelete />
             </span>
-            <span className="icon" onClick={() => handleDone(todo.id)}>
+            <span className="icon" onClick={() => handleDone(todo.id)} role="button" onKeyDown={(e) => {
+                if (e.key === "l") {
+                if (!edit && !todo.isDone) {
+                    setEdit(!edit);
+                }
+                }
+            }}>
             <MdDone />
             </span>
         </div>
